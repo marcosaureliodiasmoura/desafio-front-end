@@ -30,12 +30,9 @@ export default function Home() {
           </Col>
           <h2>Produtos</h2>
           <BoxProducts>
-            <Product props />
-            <Product props />
-            <Product props />
-            <Product props />
-            <Product props />
-            <Product props />
+            {products.map(item => {
+              return <Product key={item.id} item={item} />
+            })}
           </BoxProducts>
         </Row>
       </Container>
