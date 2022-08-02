@@ -3,11 +3,15 @@ import React from 'react';
 import GlobalStyle from './styles/global';
 import Home from './pages/Home/index';
 
+import ProductProvider from './hooks/product';
+
 function App() {
   return (
     <>
-    <GlobalStyle />
-    <Home />
+        <GlobalStyle />
+        <ProductProvider>
+        <Home />
+        </ProductProvider>
     </>
   );
 }
