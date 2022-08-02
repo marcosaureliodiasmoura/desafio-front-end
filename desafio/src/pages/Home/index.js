@@ -14,19 +14,27 @@ import { ProductContext } from '../../hooks/product';
 export default function Home() {
   const { products } = useContext(ProductContext);
 
+  // Ele recebe os valores e não atualiza a tempo
+
   return (
     <>
-      <Container>  
+      <Container>
         <Row>
           <Col xs={12}>
-            <Header/>
+            <Header />
           </Col>
           <h2>Produtos</h2>
-          <BoxProducts>
+
+          {products.length ? (
+            <BoxProducts>
             {products.map(item => {
               return <Product key={item.id} item={item} />
             })}
           </BoxProducts>
+          ): (
+            <h2>Não deu tempo para carregar os produtos</h2>
+          )}
+      
         </Row>
       </Container>
     </>

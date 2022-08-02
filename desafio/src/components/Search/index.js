@@ -7,22 +7,18 @@ import { ProductContext } from '../../hooks/product';
 export default function Search(props) {
   const { products, setProducts } = useContext(ProductContext);
 
-  const [filterProduct, setFilterProduct] = useState([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
     if (search.length) {
-      setFilterProduct(products.filter(p => p.name
+      setProducts(products.filter(p => p.name
         .toLowerCase()
         .includes(search.toLowerCase())))
     }
 
-    if(search.length > 0){
-      setProducts(filterProduct); 
-    }
   }, [search]);
 
-  console.log(filterProduct)
+  console.log(products)
 
 
   return (
